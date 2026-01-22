@@ -1,16 +1,9 @@
 <!-- Window is fixed, 102px, pointer cursor, more gradual blurry effect on surrounding words. -->
 <!--  Comprehension questions appear afterwards in the same slide -->
-var urlParam = function(name, w){
-    w = w || window;
-    var rx = new RegExp('[\&|\?]'+name+'=([^\&\#]+)'),
-        val = w.location.search.match(rx);
-    return !val ? '':val[1];
-}
 
 <template>
   <!-- disabled translation -->
-  <Experiment title="Russian MoTR Study" translate="no">
-    var ProlificID = urlParam('ProlificID');
+  <Experiment title="Emma Test MoTR Study" translate="no">
     <Screen :title="'Welcome! This is Emma\'s Test Page'" class="instructions" :validations="{
         ProlificID: {
           minLength: $magpie.v.minLength(2)
@@ -65,18 +58,18 @@ var urlParam = function(name, w){
     <Screen class="instructions">
         <div style="width: 40em; margin: auto;">
           <div style="background-color: lightgrey; padding: 10px;">
-              <b>Инструкции</b>
+              <b>Task Explanation</b>
           </div>
           <br>
-          <p>В этом исследовании вы будете читать короткие тексты и отвечать на вопросы по ним. Однако, в отличие от обычного чтения, тексты будут размыты. 
-            Чтобы сделать текст четким, наведите на него курсор мышки. Уделите чтению текста столько времени, сколько вам необходимо для его понимания. 
-            Когда вы закончите читать текст, ответьте на вопрос, расположенный внизу экрана, и нажмите «Далее», чтобы продолжить.</p>   
+          <p>In this study, you will read short texts and answer questions about them. However, unlike regular reading, the texts will be blurred.
+To make the text clear, hover your mouse cursor over it. Take as much time as you need to understand the text.
+When you have finished reading the text, answer the question located at the bottom of the screen and click "Next" to continue.</p>   
           
-          <p>Чтобы привыкнуть к тому, как устроено исследование, перед началом основного исследования вы выполните несколько тренировочных заданий.</p> 
+          <p>To help you get used to how the study is structured, you will complete several practice tasks before the main study begins.</p> 
           <br>
        </div>
       <button style="transform: translate(-50%, -50%)" @click="$magpie.nextScreen()">
-        Начать практику
+        continue
       </button>
     </Screen>
 
@@ -103,7 +96,7 @@ var urlParam = function(name, w){
             </div>
           </template>
           <button v-if="showFirstDiv" style= "bottom:50%; transform: translate(-50%, -50%)" @click="trial.question !== null ? toggleDivs(): saveAndDisable()" :disabled="!hasRead">
-            {{ trial.question !== null ? 'Продолжить' : 'Продолжить' }}
+            {{ trial.question !== null ? 'Continue' : 'Continue' }}
           </button>
 
           <div v-else style = "position:absolute; bottom:15%; text-align: center; width: 100%; min-width: -webkit-fill-available;" >
@@ -121,17 +114,18 @@ var urlParam = function(name, w){
           </div>
           
           <button v-if="$magpie.measurements.response" style="transform: translate(-50%, -50%)" @click="toggleDivs(); $magpie.saveAndNextScreen()">
-            Продолжить
+            Continue
           </button>
         </Slide>
       </Screen>
     </template>
     
-    <Screen :title="'Практика закончена'" class="instructions">
-      <p>Вы закончили тренировку! Теперь можно перейти к основному исследованию.</p> 
+    <Screen :title="'Practice Session is over'" class="instructions">
+      <p>You have completed the training! Now you can proceed to the main study. </p>
+      <p>Please click the button below to begin.</p> 
       <p>Пожалуйста, нажмите кнопку ниже, чтобы начать.</p>
       <button style="transform: translate(-50%, -50%)" @click=" $magpie.nextScreen()">
-            Продолжить
+            Advance / Continue
       </button>
     </Screen>
 
@@ -226,7 +220,7 @@ import russ_list1 from '../trials/Russ_MoTR_List4.tsv';
 import russ_list2 from '../trials/Russ_MoTR_List4.tsv';
 import russ_list3 from '../trials/Russ_MoTR_List4.tsv';
 import russ_list4 from '../trials/Russ_MoTR_List4.tsv';
-import russ_practice from '../trials/Russ_MoTR_List_Practice.tsv';
+import russ_practice from '../trials/emmaPracticeTrials.tsv';
 
 import _ from 'lodash';
 export default {
