@@ -22,7 +22,7 @@ module.exports = {
   
   publicPath:
     process.env.NODE_ENV === 'production'
-      ? '/MOTR_Russian2/MoTR/run_motr_in_magpie/russian-oguz/'
+      ? '/MOTR_Russian2/MoTR/run_motr_in_magpie/emmaTest/'
       : '/'
 //   publicPath:
 //     process.env.NODE_ENV === 'production' && process.env.REPO_NAME
