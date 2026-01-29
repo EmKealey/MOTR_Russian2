@@ -16,7 +16,7 @@
               <b> University of Southern California Information Sheet:</b>
           </div>
           <p>
-            Hello! My name is Emma Kealey, and I am learning about MoTR at the University of Southern California in Los Angeles. 
+            Hello! My name is Emma Kealey. Currently, I am learning about MoTR at the University of Southern California in Los Angeles. 
             <br><br>
              This is an example information sheet. Please participate in this study. I need to practice my implementation
             <br><br>
